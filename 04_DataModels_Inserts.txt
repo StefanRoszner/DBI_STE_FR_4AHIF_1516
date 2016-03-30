@@ -1,0 +1,55 @@
+db.createCollection("students");
+db.createCollection("classes");
+db.createCollection("subjects");
+db.createCollection("attends");
+
+db.classes.insert(
+{
+  name: "4AHIF",
+  department: "Informatik",
+  year: "2015/16"
+});
+
+var classID = db.classes.findOne({name: "4AHIF"})._id;
+
+db.students.insert(
+{
+    firname: "Max",
+    lastname: "Mustermann",
+    dateOfBirth: ISODate("1998-12-07"),
+    class_id: classID,
+    address: {
+        street: "Hauptstraﬂe",
+        number: 12,
+        postalCode: 1050,
+        city: "Wien"
+    }
+});
+
+db.students.insert(
+{
+    firname: "Maria",
+    lastname: "Meier",
+    dateOfBirth: ISODate("1997-04-18"),
+    class_id: classID,
+    address: {
+        street: "Nebenstraﬂe",
+        number: 34,
+        postalCode: 1100,
+        city: "Wien"
+    }
+});
+
+db.subjects.insert(
+{
+    name: "DBI",
+    location: "C5.07"
+});
+
+var subjectID = db.subjects.findOne({name: "DBI"})._id;
+
+db.attends.insert(
+{
+    class_id: classID,
+    subject_id: subjectID
+});

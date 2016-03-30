@@ -1,0 +1,62 @@
+//Arbeit von Rene Friedrich & Stefan Roszner
+
+
+
+db.createCollection("profile")
+db.profile.insert({
+    benutzername:"maxmustermann@gmx.at",
+    password:"maxmuster97!!"
+})
+
+var profileID = db.profile.findOne({profile_id: profileID})._id;
+    
+db.createCollection("privat")
+db.privat.insert({
+    vorname:"Mac",
+    nachname:"Muster",
+    geburtsdaum:"01.05.1996",
+    uebermich:"Ich bin cool",
+    interessen:"Sport,Zocken"
+})
+
+var privatID = db.profile.findOne({profile_id: privatID})._id;
+	
+db.createCollection("firmen")
+db.privat.insert({
+    leistungen:"Fitnesscenter",
+    telefonnummer:"06994201337",
+    ueberuns:"Wir sind die st‰rksten",
+    straﬂe:"Langegasse",
+    ort:"Wien",
+    plz:"1080"
+})
+
+var firmenID = db.profile.findOne({profile_id: firmenID})._id;
+
+db.createCollection("veranstaltungen")
+db.veranstaltungen.insert({
+    straﬂe:"Rinderstraﬂe",
+    ort:"M¸nchen",
+    plz:"42350",
+    zeit:"18:00",
+    datum:"20.4.2016",
+    name:"Flashmob",
+    beschreibung:"Flashmob direkt am Hauptplatz",
+})
+
+var veranstaltungenID = db.profile.findOne({profile_id: veranstaltungenID})._id;
+
+db.createCollection("beitraege")
+db.beitraege.insert({
+    text:"das ist ein Beitrag",
+    zeitstempel:"Mo010520161809"
+})
+
+var beitraegeID = db.profile.findOne({profile_id: beitraegeID})._id;
+
+
+
+
+
+
+
