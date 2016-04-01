@@ -8,7 +8,7 @@ using MongoDB.Driver;
 
 namespace MongoDBLib
 {
-    class MongoDBWrapper
+   public class MongoDBWrapper
     {
         private IMongoClient client;
         private IMongoDatabase db;
@@ -27,10 +27,22 @@ namespace MongoDBLib
               Properties.Settings.Default.MongoDBName);
         }
 
-        public Boolean Insert()
+        public Boolean InsertProfile(String user, String password)
         {
             try
             {
+                var document = new BsonDocument
+                {
+                 { "profile" , new BsonDocument
+                     {
+                        { "benutzername", user },
+                        { "password", password }
+                     }
+                }
+               };
+
+                var collection = db.GetCollection<BsonDocument>("profile");
+                collection.InsertOneAsync(document);
 
                 return true;
             }
@@ -38,7 +50,7 @@ namespace MongoDBLib
             {
                 return false;
             }
-            
+
 
         }
         public Boolean Delete()
