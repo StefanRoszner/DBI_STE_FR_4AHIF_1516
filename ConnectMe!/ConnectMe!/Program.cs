@@ -13,8 +13,8 @@ namespace ConnectMe_
         {
             MongoDBWrapper wrapper = new MongoDBLib.MongoDBWrapper();
 
-            var InsertFirmen = wrapper.InsertFirmen("Fensterscheiben putzen","066413456789","Putzen schnell und gruendlich","Putzstrasse","Putzort","1111");
-
+            //var InsertFirmen = wrapper.InsertFirmen("Fensterscheiben putzen","066413456789","Putzen schnell und gruendlich","Putzstrasse","Putzort","1111");
+            //var deleteall = wrapper.DropAllCollection();
            
 
 

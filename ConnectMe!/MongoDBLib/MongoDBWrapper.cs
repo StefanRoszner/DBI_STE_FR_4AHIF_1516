@@ -173,11 +173,14 @@ namespace MongoDBLib
             }
 
         }
-        public Boolean DropAllCollection()
+        public Boolean DeleteFirmenCollection()
         {
             try
             {
-                
+                var collection = db.GetCollection<BsonDocument>("firmen");
+                var filter = new BsonDocument();
+                var result = collection.DeleteManyAsync(filter);
+                Console.WriteLine("Erfolgreich! Delete von Collection Firmen");
                 return true;
             }
             catch
@@ -185,11 +188,14 @@ namespace MongoDBLib
                 return false;
             }
         }
-        public Boolean Delete()
+        public Boolean DeleteBeitraegeCollection()
         {
             try
             {
-
+                var collection = db.GetCollection<BsonDocument>("beitraege");
+                var filter = new BsonDocument();
+                var result = collection.DeleteManyAsync(filter);
+                Console.WriteLine("Erfolgreich! Delete von Collection beitraege");
                 return true;
             }
             catch
@@ -197,5 +203,51 @@ namespace MongoDBLib
                 return false;
             }
         }
+        public Boolean DeletePrivateCollection()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("privat");
+                var filter = new BsonDocument();
+                var result = collection.DeleteManyAsync(filter);
+                Console.WriteLine("Erfolgreich! Delete von Collection Privat");
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public Boolean DeleteProfileCollection()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("profil");
+                var filter = new BsonDocument();
+                var result = collection.DeleteManyAsync(filter);
+                Console.WriteLine("Erfolgreich! Delete von Collection Profil");
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public Boolean DeleteVeranstaltungenCollection()
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("veranstalltungen");
+                var filter = new BsonDocument();
+                var result = collection.DeleteManyAsync(filter);
+                Console.WriteLine("Erfolgreich! Delete von Collection Veranstalltungen");
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+       
     }
 }
