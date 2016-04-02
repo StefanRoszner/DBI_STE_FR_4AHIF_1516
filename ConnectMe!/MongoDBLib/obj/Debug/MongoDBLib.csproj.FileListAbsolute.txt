@@ -1,0 +1,11 @@
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLib\bin\Debug\MongoDBLib.dll.config
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLib\bin\Debug\MongoDBLib.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLib\bin\Debug\MongoDBLib.pdb
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLib\bin\Debug\MongoDB.Bson.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLib\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLib\bin\Debug\MongoDB.Driver.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLib\bin\Debug\MongoDB.Bson.xml
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLib\bin\Debug\MongoDB.Driver.xml
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLib\obj\Debug\MongoDBLib.csprojResolveAssemblyReference.cache
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLib\obj\Debug\MongoDBLib.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLib\obj\Debug\MongoDBLib.pdb
