@@ -248,6 +248,247 @@ namespace MongoDBLib
                 return false;
             }
         }
-       
+
+        public long GetProfileCount()
+        {
+            var filter = new BsonDocument();
+            var result = this.db.GetCollection<BsonDocument>("profile").Count(filter);
+            return result;
+        }
+        public long GetVeranstalltungenCount()
+        {
+            var filter = new BsonDocument();
+            var result = this.db.GetCollection<BsonDocument>("veranstalltungen").Count(filter);
+            return result;
+        }
+        public long GetBeitraegeCount()
+        {
+            var filter = new BsonDocument();
+            var result = this.db.GetCollection<BsonDocument>("beitraege").Count(filter);
+            return result;
+        }
+        public long GetPrivateCount()
+        {
+            var filter = new BsonDocument();
+            var result = this.db.GetCollection<BsonDocument>("private").Count(filter);
+            return result;
+        }
+        public long GetFirmenCount()
+        {
+            var filter = new BsonDocument();
+            var result = this.db.GetCollection<BsonDocument>("firmen").Count(filter);
+            return result;
+        }
+
+        public IList<string> GetProfileNames()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("profile")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("benutzername").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetPrivateFirstnames()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("private")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("vorname").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetPrivateLastnames()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("private")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("nachname").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetPrivateBirthday()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("private")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("geburtsdatum").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetPrivateAboutme()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("private")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("ueber mich").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetPrivateHobby()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("private")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("interessen").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetFirmenAchievements()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("firmen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("achievements").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetFirmenTelefon()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("firmen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("telefon").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetFirmenAboutus()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("firmen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("ueber uns").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetFirmenStreet()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("firmen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("strasse").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetFirmenLocation()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("firmen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("ort").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetFirmenZipcode()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("firmen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("plz").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetVeranstalltungenStreet()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("veranstalltungen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("strasse").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetVeranstalltungenLocation()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("veranstalltungen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("ort").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetVeranstalltungenZipcode()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("veranstalltungen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("plz").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetVeranstalltungenTime()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("veranstalltungen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("zeit").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetVeranstalltungenDate()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("veranstalltungen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("datum").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetVeranstalltungenName()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("veranstalltungen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("name").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetVeranstalltungenDescription()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("veranstalltungen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("beschreibung").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetBeitraegeText()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("beitraege")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("text").AsString).ToList();
+
+            return result;
+        }
+        public IList<string> GetBeitraegeTimestamp()
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("beitraege")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("zeitstaempel").AsString).ToList();
+
+            return result;
+        }
     }
 }
