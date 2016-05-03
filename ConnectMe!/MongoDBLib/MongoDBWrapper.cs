@@ -106,7 +106,7 @@ namespace MongoDBLib
             }
 
         }
-        public Boolean InsertVeranstaltungen(String street, String location, String plz, DateTime time, DateTime date, String name,String description)
+        public Boolean InsertVeranstaltungen(String street, String location, String plz, DateTime time, DateTime date, String name,String description,int grade)
         {
             try
             {
@@ -120,8 +120,9 @@ namespace MongoDBLib
                         { "zeit", time },
                         { "datum", date },
                         { "name", name },
-                        { "beschreibung",description }
-                    
+                        { "beschreibung",description },
+                        { "note",grade }
+
                };
 
                 var collection = db.GetCollection<BsonDocument>("veranstaltungen");
@@ -243,10 +244,10 @@ namespace MongoDBLib
             var result = this.db.GetCollection<BsonDocument>("profile").Count(filter);
             return result;
         }
-        public long GetVeranstalltungenCount()
+        public long GetVeranstaltungenCount()
         {
             var filter = new BsonDocument();
-            var result = this.db.GetCollection<BsonDocument>("veranstalltungen").Count(filter);
+            var result = this.db.GetCollection<BsonDocument>("veranstaltungen").Count(filter);
             return result;
         }
         public long GetBeitraegeCount()

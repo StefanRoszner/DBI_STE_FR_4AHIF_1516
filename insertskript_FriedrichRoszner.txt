@@ -22,7 +22,7 @@ db.privat.insert({
 var privatID = db.profile.findOne({profile_id: privatID})._id;
 	
 db.createCollection("firmen")
-db.privat.insert({
+db.firmen.insert({
     leistungen:"Fitnesscenter",
     telefonnummer:"06994201337",
     ueberuns:"Wir sind die stärksten",
@@ -42,6 +42,7 @@ db.veranstaltungen.insert({
     datum:"20.4.2016",
     name:"Flashmob",
     beschreibung:"Flashmob direkt am Hauptplatz",
+    note:"1",
 })
 
 var veranstaltungenID = db.profile.findOne({profile_id: veranstaltungenID})._id;

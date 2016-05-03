@@ -15,12 +15,13 @@ namespace ConnectMe_
 
             //var InsertFirmen = wrapper.InsertFirmen("Fensterscheiben putzen","066413456789","Putzen schnell und gruendlich","Putzstrasse","Putzort","1111");
             //var deleteall = wrapper.DropAllCollection();
-            //var profile = wrapper.InsertProfile("max","hallo");
-           // var firmen = wrapper.InsertFirmen("Test", "", "", "", "", "");
+            var profile = wrapper.InsertProfile("max","hallo");
+            // var firmen = wrapper.InsertFirmen("Test", "", "", "", "", "");
             //var beitrag = wrapper.InsertBeitraege("Test","");
             //var updatename = wrapper.EditProfileName("max","julian");
-           // var getfirmen = wrapper.DeleteBeitraegeCollection();
-           //var search = wrapper.SearchVeranstaltungenPerZipcode("42350");
+            // var getfirmen = wrapper.DeleteBeitraegeCollection();
+            //var search = wrapper.SearchVeranstaltungenPerZipcode("42350");
+            
             
 
 
