@@ -15,6 +15,7 @@ namespace MongoDBLib
 
         public MongoDBWrapper()
         {
+            
             var settings = new MongoClientSettings()
             {
                 Server = new MongoServerAddress(
@@ -479,70 +480,35 @@ namespace MongoDBLib
 
             return result;
         }
-        public Boolean SearchVeranstaltungenPerAchievement(String achievement)
+        public Boolean SearchVeranstaltungenName(string name)
         {
-            var filter = new BsonDocument();
-            var filter2 = new BsonDocument();
-            var result =
-              this.db.GetCollection<BsonDocument>("firmen")
-              .Find(filter).ToList()
-              .Select(o => o.GetValue("firmen").ToString()).ToList()
-              .Where(x => x.ToLower().Contains(achievement.ToLower())).ToList();
-            var result2 = 
-                this.db.GetCollection<BsonDocument>("firmen")
-                .Find(filter2).ToList()
-                .Select(o => o.GetValue("leistung").ToString()).ToList()
-              .Where(x => x.ToLower().Contains(achievement.ToLower())).ToList();
-            Console.WriteLine(result2.ToString());
+            var filter = Builders<BsonDocument>.Filter.Eq("name", name);
+            var t = this.db.GetCollection<BsonDocument>("veranstaltungen")
+                  .Find(filter).ToList();
+            Console.WriteLine(""+ t.First().ToString());
             return true;
-            try
-            {
-            }
-            catch 
-            {
-                Console.WriteLine("Fehler bei der Such-Funktion, nach einer Lesitung.");
-                return false;
-            }  
         }
-        public IList<string> SearchVeranstaltungenPerTelefon(String telefon)
+        public Boolean SearchProfileName(string name)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("benutzername", name);
+            var t = this.db.GetCollection<BsonDocument>("profile")
+                  .Find(filter).ToList();
+            Console.WriteLine("" + t.First().ToString());
+            return true;
+        }
+        public Boolean GetAverageGradeVeranstaltungen()
         {
             var filter = new BsonDocument();
-            var result =
-              this.db.GetCollection<BsonDocument>("firmen")
-              .Find(filter).ToList()
-              .Select(o => o.GetValue("telefon").AsString).ToList()
-              .Where(x => x.ToLower().Contains(telefon.ToLower())).ToList();
-            return result;
-        }
-        public IList<string> SearchVeranstaltungenPerStreet(String street)
-        {
-            var filter = new BsonDocument();
-            var result =
-              this.db.GetCollection<BsonDocument>("firmen")
-              .Find(filter).ToList()
-              .Select(o => o.GetValue("strasse").AsString).ToList()
-              .Where(x => x.ToLower().Contains(street.ToLower())).ToList();
-            return result;
-        }
-        public IList<string> SearchVeranstaltungenPerLocation(String location)
-        {
-            var filter = new BsonDocument();
-            var result =
-              this.db.GetCollection<BsonDocument>("firmen")
-              .Find(filter).ToList()
-              .Select(o => o.GetValue("ort").AsString).ToList()
-              .Where(x => x.ToLower().Contains(location.ToLower())).ToList();
-            return result;
-        }
-        public IList<string> SearchVeranstaltungenPerZipcode(String zipcode)
-        {
-            var filter = new BsonDocument();
-            var result =
-              this.db.GetCollection<BsonDocument>("firmen")
-              .Find(filter).ToList()
-              .Select(o => o.GetValue("plz").ToString()).ToList()
-              .Where(x => x.ToLower().Contains(zipcode.ToLower())).ToList();
-            return result;
+            var count = this.db.GetCollection<BsonDocument>("veranstaltungen")
+                  .Find(filter).Count();
+
+            var filtersum = Builders<BsonDocument>.Filter.Gt("note", 0);
+            var sum = this.db.GetCollection<BsonDocument>("veranstaltungen")
+                  .Find(filtersum).Count();
+
+            var avg = sum / count;
+            Console.WriteLine(""+avg);
+            return true;
         }
         public Boolean EditProfileName(String nameold, String namenew)
         {
