@@ -13,3 +13,5 @@ C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\ConnectMe!\bi
 C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\ConnectMe!\obj\Debug\ConnectMe!.csprojResolveAssemblyReference.cache
 C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\ConnectMe!\obj\Debug\ConnectMe!.exe
 C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\ConnectMe!\obj\Debug\ConnectMe!.pdb
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\ConnectMe!\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\ConnectMe!\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml

@@ -43,7 +43,7 @@ namespace MongoDBLib.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("school")]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
         public string MongoDBName {
             get {
                 return ((string)(this["MongoDBName"]));

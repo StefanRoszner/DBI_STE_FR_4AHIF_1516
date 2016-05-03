@@ -33,12 +33,10 @@ namespace MongoDBLib
             {
                 var document = new BsonDocument
                 {
-                 { "profile" , new BsonDocument
-                     {
+                 
                         { "benutzername", user },
                         { "password", password }
-                     }
-                }
+               
                };
 
                 var collection = db.GetCollection<BsonDocument>("profile");
@@ -59,16 +57,14 @@ namespace MongoDBLib
             {
                 var document = new BsonDocument
                 {
-                 { "privat" , new BsonDocument
-                     {
+                
                         
                         { "vorname", firstname },
                         { "nachname", lastname },
                         { "geburtsdatum", birthday },
                         { "ueber mich", aboutme },
                         { "interessen", hobby }
-                     }
-                }
+                 
                };
 
                 var collection = db.GetCollection<BsonDocument>("privat");
@@ -89,18 +85,14 @@ namespace MongoDBLib
             {
                 var document = new BsonDocument
                 {
-                 { "firmen" , new BsonDocument
-                     {
 
-                        { "leistungen", achievements },
-                        { "telefon", telefon },
-                        { "ueber uns", aboutus },
-                        { "straße", street },
-                        { "ort", location },
-                        { "plz", zipcode }
-                     }
-                }
-               };
+                    { "leistungen", achievements },
+                    { "telefon", telefon },
+                    { "ueber uns", aboutus },
+                    { "straße", street },
+                    { "ort", location },
+                    { "plz", zipcode }
+                };
 
                 var collection = db.GetCollection<BsonDocument>("firmen");
                 collection.InsertOneAsync(document);
@@ -120,8 +112,7 @@ namespace MongoDBLib
             {
                 var document = new BsonDocument
                 {
-                 { "veranstaltungen" , new BsonDocument
-                     {
+                
 
                         { "straße", street },
                         { "ort", location },
@@ -130,8 +121,7 @@ namespace MongoDBLib
                         { "datum", date },
                         { "name", name },
                         { "beschreibung",description }
-                     }
-                }
+                    
                };
 
                 var collection = db.GetCollection<BsonDocument>("veranstaltungen");
@@ -152,13 +142,11 @@ namespace MongoDBLib
             {
                 var document = new BsonDocument
                 {
-                 { "beitraege" , new BsonDocument
-                     {
+                
 
                         { "text", text },
                         { "zeitstempel",timecode }
-                     }
-                }
+                
                };
 
                 var collection = db.GetCollection<BsonDocument>("beitraege");
@@ -376,7 +364,7 @@ namespace MongoDBLib
             var result =
               this.db.GetCollection<BsonDocument>("firmen")
               .Find(filter).ToList()
-              .Select(o => o.GetValue("strasse").AsString).ToList();
+              .Select(o => o.GetValue("straße").ToString()).ToList();
 
             return result;
         }
@@ -489,6 +477,166 @@ namespace MongoDBLib
               .Select(o => o.GetValue("zeitstaempel").AsString).ToList();
 
             return result;
+        }
+        public Boolean SearchVeranstaltungenPerAchievement(String achievement)
+        {
+            var filter = new BsonDocument();
+            var filter2 = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("firmen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("firmen").ToString()).ToList()
+              .Where(x => x.ToLower().Contains(achievement.ToLower())).ToList();
+            var result2 = 
+                this.db.GetCollection<BsonDocument>("firmen")
+                .Find(filter2).ToList()
+                .Select(o => o.GetValue("leistung").ToString()).ToList()
+              .Where(x => x.ToLower().Contains(achievement.ToLower())).ToList();
+            Console.WriteLine(result2.ToString());
+            return true;
+            try
+            {
+            }
+            catch 
+            {
+                Console.WriteLine("Fehler bei der Such-Funktion, nach einer Lesitung.");
+                return false;
+            }  
+        }
+        public IList<string> SearchVeranstaltungenPerTelefon(String telefon)
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("firmen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("telefon").AsString).ToList()
+              .Where(x => x.ToLower().Contains(telefon.ToLower())).ToList();
+            return result;
+        }
+        public IList<string> SearchVeranstaltungenPerStreet(String street)
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("firmen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("strasse").AsString).ToList()
+              .Where(x => x.ToLower().Contains(street.ToLower())).ToList();
+            return result;
+        }
+        public IList<string> SearchVeranstaltungenPerLocation(String location)
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("firmen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("ort").AsString).ToList()
+              .Where(x => x.ToLower().Contains(location.ToLower())).ToList();
+            return result;
+        }
+        public IList<string> SearchVeranstaltungenPerZipcode(String zipcode)
+        {
+            var filter = new BsonDocument();
+            var result =
+              this.db.GetCollection<BsonDocument>("firmen")
+              .Find(filter).ToList()
+              .Select(o => o.GetValue("plz").ToString()).ToList()
+              .Where(x => x.ToLower().Contains(zipcode.ToLower())).ToList();
+            return result;
+        }
+        public Boolean EditProfileName(String nameold, String namenew)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("profile");
+                var filter = Builders<BsonDocument>.Filter.Eq("benutzername", nameold);
+                var update = Builders<BsonDocument>.Update
+                    .Set("benutzername", namenew)
+                    .CurrentDate("lastModified");
+                var result = collection.UpdateOneAsync(filter, update);
+                return true;
+                Console.WriteLine("Erfolgreich! Name von "+nameold+" wurde auf" +namenew+ " geändert.");
+            }
+            catch
+            {
+                return false;
+            }
+            
+        }
+        public Boolean EditFirmenAchievement(String nameold, String namenew)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("firmen");
+                var filter = Builders<BsonDocument>.Filter.Eq("leistungen", nameold);
+                var update = Builders<BsonDocument>.Update
+                    .Set("leistungen", namenew)
+                    .CurrentDate("lastModified");
+                var result = collection.UpdateOneAsync(filter, update);
+                return true;
+                Console.WriteLine("Erfolgreich! Name von " + nameold + " wurde auf" + namenew + " geändert.");
+            }
+            catch
+            {
+                return false;
+            }
+        }
+             public Boolean EditPrivateFirstname(String nameold, String namenew)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("privat");
+                var filter = Builders<BsonDocument>.Filter.Eq("vorname", nameold);
+                var update = Builders<BsonDocument>.Update
+                    .Set("vorname", namenew)
+                    .CurrentDate("lastModified");
+                var result = collection.UpdateOneAsync(filter, update);
+                return true;
+                Console.WriteLine("Erfolgreich! Name von " + nameold + " wurde auf" + namenew + " geändert.");
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+        public Boolean EditPrivateLastname(String nameold, String namenew)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("privat");
+                var filter = Builders<BsonDocument>.Filter.Eq("nachname", nameold);
+                var update = Builders<BsonDocument>.Update
+                    .Set("nachname", namenew)
+                    .CurrentDate("lastModified");
+                var result = collection.UpdateOneAsync(filter, update);
+                return true;
+                Console.WriteLine("Erfolgreich! Name von " + nameold + " wurde auf" + namenew + " geändert.");
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+        public Boolean EditVeranstalltungsName(String nameold, String namenew)
+        {
+            try
+            {
+                var collection = db.GetCollection<BsonDocument>("veranstaltungen");
+                var filter = Builders<BsonDocument>.Filter.Eq("name", nameold);
+                var update = Builders<BsonDocument>.Update
+                    .Set("name", namenew)
+                    .CurrentDate("lastModified");
+                var result = collection.UpdateOneAsync(filter, update);
+                return true;
+                Console.WriteLine("Erfolgreich! Name von " + nameold + " wurde auf" + namenew + " geändert.");
+            }
+            catch
+            {
+                return false;
+            }
+
         }
     }
 }

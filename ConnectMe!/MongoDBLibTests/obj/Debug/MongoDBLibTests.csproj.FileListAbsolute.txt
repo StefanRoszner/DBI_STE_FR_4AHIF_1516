@@ -1,0 +1,13 @@
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\bin\Debug\MongoDBLibTests.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\bin\Debug\MongoDBLibTests.pdb
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\bin\Debug\MongoDBLib.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\bin\Debug\MongoDB.Driver.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\bin\Debug\MongoDB.Bson.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\bin\Debug\MongoDBLib.pdb
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\bin\Debug\MongoDB.Driver.xml
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\bin\Debug\MongoDB.Bson.xml
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\obj\Debug\MongoDBLibTests.dll
+C:\Users\roszn\Documents\Projects\DBI_STE_FR_4AHIF_1516\ConnectMe!\MongoDBLibTests\obj\Debug\MongoDBLibTests.pdb
